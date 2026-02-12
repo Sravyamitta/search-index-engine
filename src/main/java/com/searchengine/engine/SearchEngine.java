@@ -1,9 +1,11 @@
 package com.searchengine.engine;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.searchengine.model.Document;
 import com.searchengine.util.TextProcessor;
-
-import java.util.*;
 
 public class SearchEngine {
 
@@ -31,7 +33,7 @@ public class SearchEngine {
 
         return scores.entrySet()
                 .stream()
-                .sorted((a, b) -> b.getValue() - a.getValue())
+                .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
                 .map(Map.Entry::getKey)
                 .toList();
     }
